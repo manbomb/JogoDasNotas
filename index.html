@@ -1,0 +1,422 @@
+﻿
+<html>
+	<head>
+		<title>Jogo das Notas - CCB</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Jogo educativo para ensinar as figuras musicais para crianças e jovens desenvolvido com o propósito principal de colaborar no ensino da música na Congregação Cristã no Brasil">
+		<meta name="keywords" content="musica,ccb,notas,jogo,educativo,didatico,ccb">
+		<meta name="author" content="Sérgio Avilla">
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<script>
+		</script>
+		<style>
+			* {
+				padding: 0px;
+				margin: 0px;
+				outline: none;
+			}
+			#head {
+				width: 100%;
+				height: 20%;
+				text-align: center;
+				background: -moz-linear-gradient(top, rgba(150,230,246,1) 0%, rgba(150,230,246,1) 96%, rgba(150,230,246,0) 100%, rgba(150,230,246,0) 101%, rgba(150,230,246,0) 102%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(top, rgba(150,230,246,1) 0%,rgba(150,230,246,1) 96%,rgba(150,230,246,0) 100%,rgba(150,230,246,0) 101%,rgba(150,230,246,0) 102%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(150,230,246,1) 0%,rgba(150,230,246,1) 96%,rgba(150,230,246,0) 100%,rgba(150,230,246,0) 101%,rgba(150,230,246,0) 102%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96e6f6', endColorstr='#0096e6f6',GradientType=0 ); /* IE6-9 */
+			}
+			#head #logo_img {
+				height: 80%;
+				margin-top: 1%;
+			}
+			#middle {
+				width: 100%;
+				height: 70%;
+				background-color: white;
+			}
+			#bottom {
+				width: 100%;
+				height: 10%;
+				background: -moz-linear-gradient(top, rgba(150,230,246,0) 0%, rgba(150,230,246,1) 10%, rgba(150,230,246,1) 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(top, rgba(150,230,246,0) 0%,rgba(150,230,246,1) 10%,rgba(150,230,246,1) 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(150,230,246,0) 0%,rgba(150,230,246,1) 10%,rgba(150,230,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0096e6f6', endColorstr='#96e6f6',GradientType=0 ); /* IE6-9 */
+			}
+			#start {
+				position: fixed;
+				height: 45%;
+				width: 35%;
+				top: 20%;
+				left: 25%;
+				/*background-color: pink;*/
+				border-radius: 30px;
+				border: 1px solid rgba(100,100,100,1);
+				background-color: rgba(255,255,255,1);
+				/*text-align: center;*/
+				padding: 5%;
+				font-family: comic sans ms;
+			}
+			#main_start {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top:0;
+				left: 0;
+				background-color: rgba(255,255,255,0.4);
+			}
+			#start h2 {
+				font-family: comic sans ms;
+				color: #49c1e7;
+				font-size: xx-large;
+				text-shadow: 3px 3px 7px rgba(150, 150, 150, 0.4);
+			}
+			#start #sub {
+				font-family: comic sans ms;
+				font-weight: bold;
+				width: 25%;
+				height: 15%;
+				border: 1px solid #323232;
+				color: #323232;
+				background-color: white;
+				border-radius:10px;
+				-webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.17);
+				-moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.17);
+				box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.17);
+			}
+			#middle {
+				text-align: center;
+			}
+			#middle #pontos {
+				border:0px;
+				background-color: transparent;
+				font-family: comic sans ms;
+				color: black;
+				position: absolute;
+				top: 25%;
+				right: 15%;
+				font-size: xx-large;
+				font-weight: bold;
+				text-shadow: 3px 3px 7px rgba(150, 150, 150, 0.4);
+			}
+			#middle #options {
+				border:0px;
+				background-color: transparent;
+				font-family: comic sans ms;
+				color: black;
+				position: absolute;
+				top: 22%;
+				left: 3%;
+				font-size: large;
+				font-weight: bold;
+				text-shadow: 3px 3px 7px rgba(150, 150, 150, 0.4);
+			}
+			#middle #options:hover {
+				color: #888;
+				transition:0.2s;
+			}
+			#middle #img_quiz {
+				margin-top:10%;
+				margin-bottom: 5%;
+				height: 30%;
+			}
+			#middle .buttons {
+				font-family: comic sans ms;
+				font-weight: bold;
+				width: 12%;
+				height: 10%;
+				border: 1px solid #323232;
+				color: #323232;
+				background-color: white;
+				border-radius:10px;
+				margin-left: 0.25%;
+				margin-right: 0.25%;
+				-webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.17);
+				-moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.17);
+				box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.17);
+			}
+			#bottom {
+				color: white;
+				font-family: comic sans ms;
+				font-size: small;
+			}
+		</style>
+		<script>
+			function options() {
+				document.getElementById("main_start").style.display = "block";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="head">
+			<img src="logo.png" id="logo_img">
+		</div>
+		<div id="middle">
+			<img src="" id="img_quiz"><br>
+			<div id="buttons"></div><br>
+			<input type="hidden" id="resp" value="">
+			<input type="button" id="pontos" value="0">
+			<input type="button" id="options" value="OPÇÕES" onclick="options()">
+		</div>
+		<div id="bottom">
+			<center>
+				<br>
+				Aplicação de código livre criada para atender as necessidades do ensino de música na Congragação Cristã no Brasil.<br>
+				<b>Desenvolvedor: Irm. Sérgio Avilla</b>
+			</center>
+		</div>
+		<div id="main_start">
+			<div id="start">
+				<center><h2>OPÇÕES</h2></center><br>
+				<input type="checkbox" id="figuras" checked> Figuras de Som<br>
+				<input type="checkbox" id="pausas" checked> Figuras de Silêncio<br>
+				<input type="checkbox" id="notasg" checked> Notas Claves de Sol<br>
+				<input type="checkbox" id="notasf" checked> Notas Claves de Fá<br>
+				<input type="checkbox" id="acidentes" checked> Acidentes<br>
+				<input type="checkbox" id="claves" checked> Claves<br><br>
+
+				<center><input type="button" id="sub" onclick="start()" value="Start"></center>
+			</div>
+		</div>
+		<div id="audio">
+			<audio id="audiowin" src="win.wav" autostart="false" ></audio>
+			<audio id="audioloss" src="loss.wav" autostart="false" ></audio>
+		</div>
+	</body>
+</html>
+
+<script>
+	var acidentes = {
+    "1":"Bemol",
+    "2":"Bequadro",
+    "3":"Sustenido",
+    "4":"Dobrado Bemol",
+    "5":"Dobrado Sustenido"
+	};
+
+	var claves = {
+    "6":"Clave de Dó",
+    "7":"Clave de Fá",
+    "8":"Clave de Sol"
+	};
+
+	var notasf = {
+    "9":"Dó",
+    "10":"Fá",
+    "11":"Lá",
+    "12":"Lá",
+    "13":"Mi",
+    "14":"Ré",
+    "15":"Si",
+    "16":"Sol",
+    "17":"Sol"
+	};
+
+	var notasg = {
+    "18":"Dó",
+    "19":"Dó",
+    "20":"Fá",
+    "21":"Fá",
+    "22":"Lá",
+    "23":"Lá",
+    "24":"Mi",
+    "25":"Mi",
+    "26":"Ré",
+    "27":"Ré",
+    "28":"Si",
+    "29":"Sol",
+    "30":"Sol"
+	};
+
+	var figuras = {
+    "31":"Semibreve",
+    "32":"Mínima",
+    "33":"Semínima",
+    "34":"Colcheia",
+    "35":"Semicolcheia",
+    "36":"Fusa",
+    "37":"Semifusa"
+	};
+
+	var pausas = {
+    "38":"Semibreve",
+    "39":"Mínima",
+    "40":"Semínima",
+    "41":"Colcheia",
+    "42":"Semicolcheia",
+    "43":"Fusa",
+	};
+
+	var maxmin = {
+	    'pausas' : {
+	        'max' : 43,
+	        'min' : 38
+	    },
+	    'figuras' : {
+	        'max' : 37,
+	        'min' : 31
+	    },
+	    'notasg' : {
+	        'max' : 30,
+	        'min' : 18
+	    },
+	    'notasf' : {
+	        'max' : 17,
+	        'min' : 9
+	    },
+	    'acidentes' : {
+	        'max' : 5,
+	        'min' : 1
+	    },
+	    'claves' : {
+	        'max' : 8,
+	        'min' : 6
+	    }
+	};
+
+	console.table(maxmin);
+
+	function aleatorio(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function gerarbtt(num) {
+		var x = 0;
+		var display = "";
+		while (x < num) {
+			display += "<input type=\"button\" id=\"btt_"+x+"\" onclick=\"clickres('btt_"+x+"')\" class=\"buttons\">";
+			x++;
+		}
+		//document.write(display); mudar aqui
+		document.getElementById("buttons").innerHTML = display;
+	}
+
+	function newImg(name) {
+		document.getElementById("img_quiz").src = "imgs/"+name+".png";
+	}
+
+	function winAud() {
+    var sound = document.getElementById("audiowin");
+    sound.play()
+	}
+	function lossAud() {
+	    var sound = document.getElementById("audioloss");
+	    sound.play()
+	}
+
+	function start() {
+		var escolha = [];
+		var arrays = [];
+
+		if (document.getElementById("figuras").checked) {
+				escolha.push(figuras);
+				arrays.push("figuras");
+		}; if (document.getElementById("claves").checked) {
+				escolha.push(claves);
+				arrays.push("claves");
+		}; if (document.getElementById("notasg").checked) {
+				escolha.push(notasg);
+				arrays.push("notasg");
+		}; if (document.getElementById("notasf").checked) {
+				escolha.push(notasf);
+				arrays.push("notasf");
+		}; if (document.getElementById("acidentes").checked) {
+				escolha.push(acidentes);
+				arrays.push("acidentes");
+		}; if (document.getElementById("pausas").checked) {
+				escolha.push(pausas);
+				arrays.push("pausas");
+		};
+
+		console.table(escolha);
+		console.table(arrays);
+
+		//esolher uma linha do array esolha
+
+		var length_escolha  = escolha.length;
+		var random1 = aleatorio(0,length_escolha-1);
+		var array_correct = escolha[random1];
+		var array_name_correct = arrays[random1];
+
+		console.table(array_correct);
+		console.log("array_name_correct: "+array_name_correct);
+
+		//escolher célular correta
+
+		var max_correct = maxmin[array_name_correct]['max'];
+		var min_correct = maxmin[array_name_correct]['min'];
+		var random2 = aleatorio(min_correct,max_correct);
+		var correct = array_correct[random2];
+
+		var length_correct = Object.keys(array_correct).length;
+
+		if (length_correct >= 5) {
+			length_correct = 5;
+		};
+
+		console.log("max_correct: "+max_correct);	
+		console.log("min_correct: "+min_correct);
+		console.log("random2: "+random2);
+		console.log("correct: "+correct);
+
+		//gera a quantidade de botões correta
+
+		gerarbtt(length_correct);
+		console.log("length_correct: "+length_correct);
+
+		//escrever os botões
+
+		var a = 0;
+		var btt_exts = [];
+
+		var btt_esc = "btt_"+(aleatorio(0,length_correct-1));
+		document.getElementById(btt_esc).value = correct;
+		document.getElementById("resp").value = correct; // guarda a resposta
+		btt_exts.push(correct);
+
+		while (a < length_correct) {
+			if (document.getElementById("btt_"+a).value == "") {
+				var b = array_correct[aleatorio(maxmin[array_name_correct]['min'],maxmin[array_name_correct]['max'])];
+				while (btt_exts.indexOf(b) >= 0) {
+					b = array_correct[aleatorio(maxmin[array_name_correct]['min'],maxmin[array_name_correct]['max'])];
+				}
+				document.getElementById("btt_"+a).value = b;
+				btt_exts.push(b);
+			}
+			a++;
+		}
+
+		// gera a imagem
+
+		newImg(random2);
+
+		document.getElementById("main_start").style.display = "none";
+
+	}
+
+	// função resposta do botão
+
+	function clickres(btt) {
+		console.log("Pressed button: "+btt);
+		var btt_clicked = document.getElementById(btt).value;
+		var gaba = document.getElementById("resp").value;
+		console.log("Resposta apertada "+btt_clicked);
+		console.log("Resposta Correta: "+gaba);
+		if (btt_clicked == gaba) {
+			document.getElementById("pontos").value = Number(document.getElementById("pontos").value) + 1;
+			winAud();
+		} else {
+			if (Number(document.getElementById("pontos").value) != 0) {
+				document.getElementById("pontos").value = Number(document.getElementById("pontos").value) - 1;
+				lossAud();
+			}
+		}
+		start();
+	}
+	
+	//start();
+
+</script>
+<!--
+	
+	Deus abençoe ...
+
+-->
